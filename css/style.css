@@ -248,14 +248,14 @@ section {
 
 
 /* Contacto */
-.contacto {
+.contacto , .servicios{
     display: flex;
     align-items: center;
     margin:10px;
     box-shadow: var(--shadow);
 
 }
-.contacto .container .row .intro .textContacto{
+.contacto .container .row .intro .textContacto, .servicios .container .row .intro .textServicio {
     color: var(--body);
 }
 .section-grey{
@@ -265,7 +265,7 @@ section {
     justify-content: center;
     margin:10px;
 }
-.section-grey .container{
+.section-grey .container, {
     box-shadow: var(--shadow);
 }
 
