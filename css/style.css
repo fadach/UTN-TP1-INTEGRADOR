@@ -246,6 +246,32 @@ section {
     color: var(--brand);
 }
 
+
+/* Contacto */
+.contacto {
+    display: flex;
+    align-items: center;
+    margin:10px;
+    box-shadow: var(--shadow);
+
+}
+.contacto .container .row .intro .textContacto{
+    color: var(--body);
+}
+.section-grey{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:10px;
+}
+.section-grey .container{
+    box-shadow: var(--shadow);
+}
+
+
+
+
 /* Footer */
 footer {
     background:linear-gradient(0deg, rgba(50, 23, 8, 0.651), rgba(8, 32, 50, 0.9)), url(../img/imagen01.jpg), #321c08;;
