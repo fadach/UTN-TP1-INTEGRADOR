@@ -1,2 +1,0 @@
-/* Preload JS y JQuery*/
-
