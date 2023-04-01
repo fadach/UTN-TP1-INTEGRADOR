@@ -136,8 +136,118 @@ section {
 }
 
 
+/* ImagenPrincipal */
+
+.hero-slant {
+    background:linear-gradient(1000deg, rgba(50, 23, 8, 0.651), rgba(8, 32, 50, 0.9)), url(../img/imagen01.jpg), #321c08;;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #ccc;
+}
+#h1Principal{
+    font-size: 80px;
+}
+.hero-slant .container .row .intro p {
+    color: #bebbbbb4;
+    font-size: 20px;
+}
+.hero-slant.overlay {
+    position: relative; }
+.hero-slant.overlay:before {
+        position: absolute;
+        content: "";
+        left: 0;
+        bottom: 0;
+        right: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.2); }
+.hero-slant .container {
+    position: relative; }
+.hero-slant, .hero-slant > .container > .row {
+    height: 100vh; 
+    }
+.hero-slant .intro {
+    position: relative;
+    z-index: 2;
+    max-width: 500px; }
+.hero-slant .hero_img {
+    position: absolute;
+    right: 0;
+    z-index: 9;
+    bottom: 100px; }
+@media (max-width: 991.98px) {
+        .hero-slant .hero_img {
+            position: relative;
+            margin-top: -200px;
+            bottom: -100px;
+        } 
+}
+.hero-slant .slant {
+    position: absolute;
+    width: calc(100% + 2px);
+    height: 380px;
+    bottom: -2px;
+    left: -2px;
+    z-index: 1;
+    background-size: cover;
+    background-position: left top;
+    background-repeat: no-repeat; }
+
+ /* Servicios */   
+
+.services .section-title h2{
+    color: var(--body);
+    margin: 0px 0px 50px; 
+}
+
+.services .icon-box {
+    box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
+    padding: 50px 30px;
+    transition: all ease-in-out 0.4s;
+    background: #fff;
+    margin-block-end: 10px;
+}
+
+.services .icon-box .icon {
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+.services .icon-box .icon i {
+    color: var(--brand);
+    font-size: 40px;
+    transition: 0.3s;
+}
+
+.services .icon-box h4 {
+    font-weight: 500;
+    margin-bottom: 15px;
+    font-size: 30px;
+}
+
+.services .icon-box h4 a {
+    color: #37517e;
+    transition: ease-in-out 0.3s;
+}
+
+.services .icon-box p {
+    line-height: 24px;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.services .icon-box:hover {
+    transform: translateY(-10px);
+}
+
+.services .icon-box:hover h4 a {
+    color: var(--brand);
+}
+
+/* Footer */
 footer {
-    background:linear-gradient(0deg, rgba(50, 23, 8, 0.651), rgba(8, 32, 50, 0.9)), url(../img/bg_banner1.jpg), #321c08;;
+    background:linear-gradient(0deg, rgba(50, 23, 8, 0.651), rgba(8, 32, 50, 0.9)), url(../img/imagen01.jpg), #321c08;;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -184,3 +294,6 @@ input.form-control {
     box-shadow: none;
     border-color: var(--brand);
 }
+
+
+
