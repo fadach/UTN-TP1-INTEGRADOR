@@ -247,15 +247,15 @@ section {
 }
 
 
-/* Contacto */
-.contacto , .servicios{
+/* Contacto, servicios, informacion y equipo */
+.contacto , .servicios , .equipo ,.informacion{
     display: flex;
     align-items: center;
     margin:10px;
     box-shadow: var(--shadow);
 
 }
-.contacto .container .row .intro .textContacto, .servicios .container .row .intro .textServicio {
+.contacto .container .row .intro .textContacto, .servicios .container .row .intro .textServicio, .informacion .container .row .intro .textInformacion , .equipo .container .row .intro .textEquipo  {
     color: var(--body);
 }
 .section-grey{
