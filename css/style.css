@@ -1,12 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap");
 
 :root {
     --brand: #ff4d29;
     --dark: #092032;
     --body: #516171;
-    --border: rgba(0,0,0,0.08);
+    --border: rgba(0, 0, 0, 0.08);
     --shadow: 0px 6px 30px rgba(0, 0, 0, 0.08);
-    
 }
 
 body {
@@ -15,8 +14,16 @@ body {
     line-height: 1.7;
 }
 
-h1,h2,h3,h4,h5,h6,
-.display-1,.display-2,.display-3,.display-4 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.display-1,
+.display-2,
+.display-3,
+.display-4 {
     font-weight: 700;
     color: var(--dark);
 }
@@ -89,10 +96,10 @@ section {
     background-color: #fff;
     color: var(--brand);
 }
-.conditions-section{
+.conditions-section {
     margin: 20px 0;
 }
-.conditions-section a{
+.conditions-section a {
     color: #fff;
     margin: 0 10px;
 }
@@ -137,16 +144,30 @@ section {
 
 /* Preload */
 
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-out, visibility 0s linear 0.5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity 0.5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
 /* ImagenPrincipal */
 
 .hero-slant {
-    background:linear-gradient(1000deg, rgba(50, 23, 8, 0.651), rgba(8, 32, 50, 0.9)), url(../img/imagen01.jpg), #321c08;;
+    background: linear-gradient(1000deg, rgba(50, 23, 8, 0.651), rgba(8, 32, 50, 0.9)), url(../img/imagen01.jpg),
+        #321c08;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-color: #ccc;
 }
-#h1Principal{
+#h1Principal {
     font-size: 80px;
 }
 .hero-slant .container .row .intro p {
@@ -154,35 +175,41 @@ section {
     font-size: 20px;
 }
 .hero-slant.overlay {
-    position: relative; }
+    position: relative;
+}
 .hero-slant.overlay:before {
-        position: absolute;
-        content: "";
-        left: 0;
-        bottom: 0;
-        right: 0;
-        top: 0;
-        background: rgba(0, 0, 0, 0.2); }
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.2);
+}
 .hero-slant .container {
-    position: relative; }
-.hero-slant, .hero-slant > .container > .row {
-    height: 100vh; 
-    }
+    position: relative;
+}
+.hero-slant,
+.hero-slant > .container > .row {
+    height: 100vh;
+}
 .hero-slant .intro {
     position: relative;
     z-index: 2;
-    max-width: 500px; }
+    max-width: 500px;
+}
 .hero-slant .hero_img {
     position: absolute;
     right: 0;
     z-index: 9;
-    bottom: 100px; }
+    bottom: 100px;
+}
 @media (max-width: 991.98px) {
-        .hero-slant .hero_img {
-            position: relative;
-            margin-top: -200px;
-            bottom: -100px;
-        } 
+    .hero-slant .hero_img {
+        position: relative;
+        margin-top: -200px;
+        bottom: -100px;
+    }
 }
 .hero-slant .slant {
     position: absolute;
@@ -193,13 +220,14 @@ section {
     z-index: 1;
     background-size: cover;
     background-position: left top;
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+}
 
- /* Servicios */   
+/* Servicios */
 
-.services .section-title h2{
+.services .section-title h2 {
     color: var(--body);
-    margin: 0px 0px 50px; 
+    margin: 0px 0px 50px;
 }
 
 .services .icon-box {
@@ -246,35 +274,74 @@ section {
     color: var(--brand);
 }
 
+/* Equipo */
+.team-item {
+    box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
+}
+.team-item img {
+    transition: 0.5s;
+}
+
+.team-item:hover img {
+    transform: scale(1.1);
+}
+
+.team-item .team-social {
+    position: absolute;
+    width: 38px;
+    top: 50%;
+    left: -38px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    transition: 0.5s;
+}
+
+.team-item .team-social .btn {
+    color: var(--body);
+    background: #ffffff;
+    padding: 0;
+}
+
+.team-item .team-social .btn:hover {
+    color: #ffffff;
+    background: var(--body);
+}
+
+.team-item:hover .team-social {
+    left: 0;
+}
 
 /* Contacto, servicios, informacion y equipo */
-.contacto , .servicios , .equipo ,.informacion{
+.contacto,
+.servicios,
+.equipo,
+.informacion {
     display: flex;
     align-items: center;
-    margin:10px;
+    margin: 10px;
     box-shadow: var(--shadow);
-
 }
-.contacto .container .row .intro .textContacto, .servicios .container .row .intro .textServicio, .informacion .container .row .intro .textInformacion , .equipo .container .row .intro .textEquipo  {
+.contacto .container .row .intro .textContacto,
+.servicios .container .row .intro .textServicio,
+.informacion .container .row .intro .textInformacion,
+.equipo .container .row .intro .textEquipo {
     color: var(--body);
 }
-.section-grey{
-    
+.section-grey {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin:10px;
+    margin: 10px;
 }
-.section-grey .container, {
+.section-grey .container {
     box-shadow: var(--shadow);
 }
 
-
-
-
 /* Footer */
 footer {
-    background:linear-gradient(0deg, rgba(50, 23, 8, 0.651), rgba(8, 32, 50, 0.9)), url(../img/imagen01.jpg), #321c08;;
+    background: linear-gradient(0deg, rgba(50, 23, 8, 0.651), rgba(8, 32, 50, 0.9)), url(../img/imagen01.jpg), #321c08;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -296,7 +363,7 @@ footer .navbar-brand {
 }
 
 footer p {
-    color: #ADB3B9;
+    color: #adb3b9;
 }
 
 footer .social-icons a {
@@ -314,13 +381,10 @@ input.form-control {
 
 .form-control {
     background-color: rgba(0, 0, 0, 0.04);
-    border-color: rgba(0, 0, 0, 0.04);;
+    border-color: rgba(0, 0, 0, 0.04);
 }
 
 .form-control:focus {
     box-shadow: none;
     border-color: var(--brand);
 }
-
-
-
