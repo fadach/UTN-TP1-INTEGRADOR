@@ -160,14 +160,13 @@ section {
 /* ImagenPrincipal */
 
 .hero-slant {
-    background: linear-gradient(1000deg, rgba(50, 23, 8, 0.651), rgba(8, 32, 50, 0.9)), url(../img/imagen01.jpg),
-        #321c08;
+    background-image:linear-gradient(1000deg, rgba(50, 23, 8, 0.651), rgba(8, 32, 50, 0.9)), url(../img/imagen01.jpg);
     background-size: cover;
-    background-position: center;
+    background-position:inherit;
     background-repeat: no-repeat;
     background-color: #ccc;
 }
-#h1Principal {
+.hero-slant .container .row .intro .text-white{
     font-size: 80px;
 }
 .hero-slant .container .row .intro p {
@@ -204,7 +203,7 @@ section {
     z-index: 9;
     bottom: 100px;
 }
-@media (max-width: 991.98px) {
+@media (max-width: 300) {
     .hero-slant .hero_img {
         position: relative;
         margin-top: -200px;
