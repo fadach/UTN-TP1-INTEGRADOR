@@ -397,23 +397,26 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label class="text-black" for="fname">Nombre</label>
-                                        <input type="text" class="form-control" id="fname" pattern="^[A-Z][a-z]+((\s[A-Z][a-z]+)+)?$">
+                                        <input type="text" class="form-control" id="fname" pattern="^[A-Z][a-z]+((\s[A-Z][a-z]+)+)?$"
+                                        title="El nombre debe tener el siguiente formato Ej: Diego Hernán" required>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label class="text-black" for="lname">Apellido</label>
-                                        <input type="text" class="form-control" id="lname" pattern="^[A-Z][a-z]+((\s[A-Z][a-z]+)+)?$">
+                                        <input type="text" class="form-control" id="lname" pattern="^[A-Z][a-z]+((\s[A-Z][a-z]+)+)?$"
+                                        title="El apellido debe tener el siguiente formato Ej: Ermocida Rodriguez" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="text-black" for="email">Email</label>
-                                <input type="email" class="form-control" id="email">
+                                <input type="email" class="form-control" id="email" pattern="^[a-z._-]+[@][a-z]+(\.[a-z]+)+$"
+                                title="El correo electronico debe tener el siguiente formato Ej: usurname@dominio.com" required>
                             </div>
                             <div class="form-group">
                                 <label class="text-black" for="message">Mensaje</label>
-                                <textarea name="" class="form-control" id="message" cols="30" rows="5"></textarea>
+                                <textarea name="" class="form-control" id="message" cols="30" rows="5" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary-hover-outline">Enviar Mensaje</button>
                         </form>

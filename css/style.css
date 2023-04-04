@@ -384,14 +384,15 @@ footer .social-icons a {
 }
 /* color de los cuadros de los input */
 input.form-control {
-  border-color: #000;
-  opacity: 0.2;
+  border-color: #00000030;
+
   height: 44px;
+  margin-bottom: 30px;
 }
 /* color del cuadro del textarea */
 textarea.form-control {
-  border-color: #000;
-  opacity: 0.2;
+  border-color: #00000030;
+  margin-bottom: 30px;
 }
 
 /* .form-control {
