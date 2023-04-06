@@ -411,3 +411,23 @@ textarea.form-control {
   background-color: var(--brand);
   color: #fff;
 }
+
+/* nav tab formulario de reclamo */
+.nav-tabs {
+  justify-content: center;
+}
+
+/* color apartados tab */
+#datos-personales-tab,
+#detalle-problema-tab,
+#confirmacion-tab {
+  color: var(--brand);
+}
+
+/* boton siguiente */
+#btnSiguiente1,
+#btnSiguiente2 {
+  background-color: var(--brand);
+  color: #ffffff;
+  border-color: var(--brand);
+}
