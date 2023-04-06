@@ -323,12 +323,6 @@ section {
 }
 
 /* Contacto, servicios, informacion y equipo */
-.map{
-  display: flex;
-  justify-content: center;
-  box-shadow: var(--shadow);
-}
-
 .contacto,
 .servicios,
 .equipo,
