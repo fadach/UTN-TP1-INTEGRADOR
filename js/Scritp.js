@@ -59,3 +59,18 @@ function showConfirmacion() {
   // si le haces click a su solapa te la muestra
   $("#tabMenu a[href='#confirmacion']").tab("show");
 }
+
+let confirmacion = document.getElementById("confirmacion");
+
+let generarPDF = document.getElementById("btnExportar");
+window.jsPDF = window.jspdf.jsPDF;
+
+function generandoPDF() {
+  var pdf = new jsPDF();
+  pdf.setFontSize(16);
+
+  pdf.text(-70, 10, aPdf.textContent);
+  pdf.save("Su reclamo.pdf");
+  // Todo seguir con este codigo para darle formato al texto que figura en el pdf
+}
+generarPDF.addEventListener("click", generandoPDF);

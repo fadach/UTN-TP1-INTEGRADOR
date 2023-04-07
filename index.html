@@ -561,14 +561,17 @@
                                                 <!-- formulario de la solapa confirmar -->
                                                 <div class="tab-pane fade" id="confirmacion" role="tabpanel">
                                                     <h4>Por favor, revise su información antes de enviar.</h4>
+                                                    <div id="aPdf">
                                                     <p>Nombre: <span id="nombreConfirm"></span></p>
                                                     <p>Email: <span id="emailConfirm"></span></p>
                                                     <p>Componente: <span id="componenteConfirm"></span></p>
                                                     <p>Problema: <span id="problemaConfirm"></span></p>
-                                                    <button type="button" class="btn btn-success"
-                                                        onclick="submitForm()">
-                                                        Enviar
+                                                    </div>
+                                                    
+                                                    <button type="button" id="btnExportar" class="btn btn-success">
+                                                        Descargue su pdf
                                                     </button>
+                                                    <input type="submit" value="Enviar" class="btn btn-success">
                                                 </div>
                                             </div>
                                         </div>
@@ -585,6 +588,7 @@
 
 
     </div>
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/scritp.js"></script>
 
@@ -595,6 +599,7 @@
     <script src="js/jquery.stellar.min.js"></script>
     <script src="js/jquery.waypoints.min.js"></script>
     <script src="js/custom.js"></script>
+
 </body>
 
 </html>
