@@ -66,11 +66,65 @@ let generarPDF = document.getElementById("btnExportar");
 window.jsPDF = window.jspdf.jsPDF;
 
 function generandoPDF() {
-  var pdf = new jsPDF();
-  pdf.setFontSize(16);
+  var doc = new jsPDF();
 
-  pdf.text(-70, 10, aPdf.textContent);
-  pdf.save("Su reclamo.pdf");
-  // Todo seguir con este codigo para darle formato al texto que figura en el pdf
+  //palabra dreams
+  doc.setFontSize(22);
+  doc.setFont("helvetica", "bold");
+
+  doc.text(12, 15, "DREA");
+
+  doc.setTextColor(255, 77, 41);
+  doc.text(34, 15, "MS");
+
+  doc.setTextColor(10, 10, 10);
+  doc.setFontSize(14);
+  doc.setFont("helvetica", "normal");
+
+  doc.text(130, 15, "Comprobante de reclamo");
+  //Linea divisoria
+  doc.line(10, 22, 200, 22);
+
+  //texto del reclamo
+  doc.text(80, 40, "Datos Personales");
+
+  doc.text(12, 60, "Nombre: ");
+  doc.setFont("courier", "normal");
+  doc.text(36, 60, nombreConfirm.innerText); //reemplazar
+
+  doc.setFont("helvetica", "normal");
+  doc.text(12, 75, "e-mail:");
+  doc.setFont("courier", "normal");
+  doc.text(31, 75, emailConfirm.innerText); //reemplazar
+
+  doc.setFont("helvetica", "normal");
+  doc.text(76, 100, "Detalles del problema");
+
+  doc.text(12, 120, "Componente:");
+  doc.setFont("courier", "normal");
+  doc.text(48, 120, componenteConfirm.innerText); //reemplazar
+
+  doc.setFont("helvetica", "normal");
+  doc.text("Descripcion del Problema", 12, 135);
+
+  doc.setFont("courier", "normal");
+
+  //todo re ver este codigo
+
+  //?codigo para que el texto largo rompa en el pdf
+
+  //el numero despues de innerText marca el tamaño de cada linea
+  textLines = doc.splitTextToSize(problemaConfirm.innerText, 200);
+  //posicion en el eje y que arranca el texto
+  let posicionY = 150;
+  //doc.text(x,y,texto)
+  doc.text(10, posicionY + 12 / 72, textLines);
+  posicionY += textLines.length;
+
+  //todo falta armar el formato del pie de la hoja de nuestro pdf
+
+  doc.save("Su reclamo.pdf");
 }
 generarPDF.addEventListener("click", generandoPDF);
+
+//todo hacer validacion del formulacio de reclamo
