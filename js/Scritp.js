@@ -10,7 +10,7 @@ spinner();
 
 // form de reclamo
 function validateName() {
-  // si el id nombre tiene un valor valida a true
+  // si el id nombre tiene un valor valida a true el email
   if ($("#nombre").val()) {
     $("#email").prop("disabled", false);
   } else {
@@ -19,7 +19,7 @@ function validateName() {
 }
 
 function validateEmail() {
-  // si el id email tiene un valor valida a true
+  // si el id email tiene un valor valida a true el boton siguiente
   if ($("#email").val()) {
     $("#btnSiguiente1").prop("disabled", false);
   } else {
@@ -28,7 +28,7 @@ function validateEmail() {
 }
 
 function validateComponent() {
-  //si el id componente tiene un valor valida a true
+  //si el id componente tiene un valor valida a true el problema
   if ($("#componente").val()) {
     $("#problema").prop("disabled", false);
   } else {
@@ -37,7 +37,7 @@ function validateComponent() {
 }
 
 function validateProblem() {
-  // si el id problema tiene un valor valida a true
+  // si el id problema tiene un valor valida a true el boton siguiente2
   if ($("#problema").val()) {
     $("#btnSiguiente2").prop("disabled", false);
   } else {
@@ -56,7 +56,7 @@ function showConfirmacion() {
   $("#emailConfirm").text($("#email").val());
   $("#componenteConfirm").text($("#componente").val());
   $("#problemaConfirm").text($("#problema").val());
-  // si le haces click a su solapa te la muestra
+  // si le haces click a su solapa confirmacion te la muestra
   $("#tabMenu a[href='#confirmacion']").tab("show");
 }
 
@@ -111,7 +111,7 @@ function generandoPDF() {
 
   //todo re ver este codigo
 
-  //?codigo para que el texto largo rompa en el pdf
+  //?codigo para que la linea rompa en el pdf
 
   //el numero despues de innerText marca el tamaño de cada linea
   textLines = doc.splitTextToSize(problemaConfirm.innerText, 200);
@@ -121,7 +121,16 @@ function generandoPDF() {
   doc.text(10, posicionY + 12 / 72, textLines);
   posicionY += textLines.length;
 
-  //todo falta armar el formato del pie de la hoja de nuestro pdf
+  doc.setFont("helvetica", "normal");
+  doc.line(10, 270, 200, 270);
+
+  doc.setFontSize(12);
+  doc.text(
+    "Ante cualquier problema no dude en acercarse a nuestro local",
+    50,
+    280
+  );
+  doc.text("Constitucion 1090, San Fernando, Argentina", 65, 290);
 
   doc.save("Su reclamo.pdf");
 }
