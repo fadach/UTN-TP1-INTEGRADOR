@@ -326,7 +326,8 @@ section {
 .contacto,
 .servicios,
 .equipo,
-.informacion {
+.informacion
+{
   display: flex;
   align-items: center;
   margin: 10px;
