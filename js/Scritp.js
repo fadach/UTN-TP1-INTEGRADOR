@@ -106,7 +106,7 @@ function showDetalleProblema() {
     //el mensaje de error del email desaparece
     $("#errEmail").text("");
 
-    //el margen del input email desaparece
+    //el margen del input email vuelve a la normalidad
     $("#email").css("margin-bottom", "30px");
   }
 }
