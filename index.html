@@ -539,11 +539,13 @@
                                                         <label id="laNombre" for="nombre" class="form-label">Nombre</label>
                                                         <input type="text" class="form-control" id="nombre" 
                                                             oninput="validateName()" />
+                                                            <small id="errNombre"></small>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label id="laEmail" for="email" class="form-label">Email</label>
                                                         <input type="email" class="form-control" id="email"
                                                             oninput="validateEmail()" disabled />
+                                                            <small id="errEmail"></small>
                                                     </div>
                                                     <button type="button" class="btn btn-primary" id="btnSiguiente1"
                                                         onclick="showDetalleProblema()" disabled>

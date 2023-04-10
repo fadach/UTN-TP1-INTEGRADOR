@@ -45,9 +45,70 @@ function validateProblem() {
   }
 }
 
+let expRegNombre = /^[A-Z][a-z]+((\s[A-Z][a-z]+)+)?$/;
+let expRegEmail = /^[a-z._-]+[@][a-z]+(\.[a-z]+)+$/;
+
 function showDetalleProblema() {
-  // si le hago click a la pestaña detalle del problema me la muestra
-  $("#tabMenu a[href='#detalle-problema']").tab("show");
+  if (
+    !expRegNombre.test($("#nombre").val()) &&
+    !expRegEmail.test($("#email").val())
+  ) {
+    //error del nombre
+    $("#errNombre").text(
+      'El nombre debe respetar el siguiente formato:"Juan Perez"'
+    );
+    //margen input nombre cuando tira error nombre
+    $("#nombre").css("margin-bottom", "10px");
+
+    //error correo
+    $("#errEmail").text(
+      'El correo debe respetar el siguiente formato:"usuario@dominio.com"'
+    );
+    //margen error correo
+    $("#email").css("margin-bottom", "10px");
+  } else if (!expRegNombre.test($("#nombre").val())) {
+    //error nombre
+    $("#errNombre").text(
+      'El nombre debe respetar el siguiente formato:"Juan Perez"'
+    );
+    //margen input nombre cuando tira error nombre
+    $("#nombre").css("margin-botton", "10px");
+
+    //error email se vacia
+    $("errEmail").text("");
+
+    //margen input email vuelve a la normalidad
+    $("#email").css("margin-bottom", "30px");
+  } else if (!expRegEmail.test($("#email").val())) {
+    //error Email
+    $("#errEmail").text(
+      'El correo debe respetar el siguiente formato:"usuario@dominio.com"'
+    );
+
+    //margen del input email cuando arroja error email
+    $("#email").css("margin-bottom", "10px");
+
+    //texto error nombre desaparece
+    $("#errNombre").text("");
+
+    //margen del input nombre vuelve a la normalidad
+    $("#nombre").css("margin-bottom", "30px");
+  } else {
+    // si le hago click al siguiente me manda a la pestaña detalle del problema
+    $("#tabMenu a[href='#detalle-problema']").tab("show");
+
+    //el mensaje de error del nombre desaparece
+    $("#errNombre").text("");
+
+    //el margen del imput nombre vuelve a la normalidad
+    $("#nombre").css("margin-bottom", "30px");
+
+    //el mensaje de error del email desaparece
+    $("#errEmail").text("");
+
+    //el margen del input email desaparece
+    $("#email").css("margin-bottom", "30px");
+  }
 }
 
 function showConfirmacion() {
@@ -90,26 +151,24 @@ function generandoPDF() {
 
   doc.text(12, 60, "Nombre: ");
   doc.setFont("courier", "normal");
-  doc.text(36, 60, nombreConfirm.innerText); //reemplazar
+  doc.text(36, 60, nombreConfirm.innerText);
 
   doc.setFont("helvetica", "normal");
   doc.text(12, 75, "e-mail:");
   doc.setFont("courier", "normal");
-  doc.text(31, 75, emailConfirm.innerText); //reemplazar
+  doc.text(31, 75, emailConfirm.innerText);
 
   doc.setFont("helvetica", "normal");
   doc.text(76, 100, "Detalles del problema");
 
   doc.text(12, 120, "Componente:");
   doc.setFont("courier", "normal");
-  doc.text(48, 120, componenteConfirm.innerText); //reemplazar
+  doc.text(48, 120, componenteConfirm.innerText);
 
   doc.setFont("helvetica", "normal");
   doc.text("Descripcion del Problema", 12, 135);
 
   doc.setFont("courier", "normal");
-
-  //todo re ver este codigo
 
   //?codigo para que la linea rompa en el pdf
 
@@ -135,5 +194,3 @@ function generandoPDF() {
   doc.save("Su reclamo.pdf");
 }
 generarPDF.addEventListener("click", generandoPDF);
-
-//todo hacer validacion del formulacio de reclamo

@@ -401,10 +401,7 @@ textarea.form-control {
   margin-bottom: 30px;
 }
 
-/* .form-control {
-  background-color: rgba(0, 0, 0, 0.04);
-  border-color: rgba(0, 0, 0, 0.04);
-} */
+
 
 .form-control:focus {
   box-shadow: none;
@@ -436,4 +433,9 @@ textarea.form-control {
   background-color: var(--brand);
   color: #ffffff;
   border-color: var(--brand);
+}
+
+#errNombre,
+#errEmail{
+  color:var(--brand);
 }
