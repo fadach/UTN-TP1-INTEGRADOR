@@ -326,8 +326,7 @@ section {
 .contacto,
 .servicios,
 .equipo,
-.informacion
-{
+.informacion {
   display: flex;
   align-items: center;
   margin: 10px;
@@ -401,8 +400,6 @@ textarea.form-control {
   margin-bottom: 30px;
 }
 
-
-
 .form-control:focus {
   box-shadow: none;
   border-color: var(--brand);
@@ -436,6 +433,13 @@ textarea.form-control {
 }
 
 #errNombre,
-#errEmail{
-  color:var(--brand);
+#errEmail {
+  color: var(--brand);
+}
+
+#confirmo-datos {
+  display:inline-block;
+  margin-bottom: 30px;
+  margin-left: 10px;
+  font-weight: 900;
 }
