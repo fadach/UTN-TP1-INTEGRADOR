@@ -10,7 +10,7 @@ spinner();
 
 // form de reclamo
 function validateName() {
-  // si el id nombre tiene un valor valida a true
+  // si el id nombre tiene un valor valida a true el email
   if ($("#nombre").val()) {
     $("#email").prop("disabled", false);
   } else {
@@ -19,7 +19,7 @@ function validateName() {
 }
 
 function validateEmail() {
-  // si el id email tiene un valor valida a true
+  // si el id email tiene un valor valida a true el boton siguiente
   if ($("#email").val()) {
     $("#btnSiguiente1").prop("disabled", false);
   } else {
@@ -28,7 +28,7 @@ function validateEmail() {
 }
 
 function validateComponent() {
-  //si el id componente tiene un valor valida a true
+  //si el id componente tiene un valor valida a true el problema
   if ($("#componente").val()) {
     $("#problema").prop("disabled", false);
   } else {
@@ -37,7 +37,7 @@ function validateComponent() {
 }
 
 function validateProblem() {
-  // si el id problema tiene un valor valida a true
+  // si el id problema tiene un valor valida a true el boton siguiente2
   if ($("#problema").val()) {
     $("#btnSiguiente2").prop("disabled", false);
   } else {
@@ -56,7 +56,7 @@ function showConfirmacion() {
   $("#emailConfirm").text($("#email").val());
   $("#componenteConfirm").text($("#componente").val());
   $("#problemaConfirm").text($("#problema").val());
-  // si le haces click a su solapa te la muestra
+  // si le haces click a su solapa confirmacion te la muestra
   $("#tabMenu a[href='#confirmacion']").tab("show");
 }
 
@@ -66,11 +66,74 @@ let generarPDF = document.getElementById("btnExportar");
 window.jsPDF = window.jspdf.jsPDF;
 
 function generandoPDF() {
-  var pdf = new jsPDF();
-  pdf.setFontSize(16);
+  var doc = new jsPDF();
 
-  pdf.text(-70, 10, aPdf.textContent);
-  pdf.save("Su reclamo.pdf");
-  // Todo seguir con este codigo para darle formato al texto que figura en el pdf
+  //palabra dreams
+  doc.setFontSize(22);
+  doc.setFont("helvetica", "bold");
+
+  doc.text(12, 15, "DREA");
+
+  doc.setTextColor(255, 77, 41);
+  doc.text(34, 15, "MS");
+
+  doc.setTextColor(10, 10, 10);
+  doc.setFontSize(14);
+  doc.setFont("helvetica", "normal");
+
+  doc.text(130, 15, "Comprobante de reclamo");
+  //Linea divisoria
+  doc.line(10, 22, 200, 22);
+
+  //texto del reclamo
+  doc.text(80, 40, "Datos Personales");
+
+  doc.text(12, 60, "Nombre: ");
+  doc.setFont("courier", "normal");
+  doc.text(36, 60, nombreConfirm.innerText); //reemplazar
+
+  doc.setFont("helvetica", "normal");
+  doc.text(12, 75, "e-mail:");
+  doc.setFont("courier", "normal");
+  doc.text(31, 75, emailConfirm.innerText); //reemplazar
+
+  doc.setFont("helvetica", "normal");
+  doc.text(76, 100, "Detalles del problema");
+
+  doc.text(12, 120, "Componente:");
+  doc.setFont("courier", "normal");
+  doc.text(48, 120, componenteConfirm.innerText); //reemplazar
+
+  doc.setFont("helvetica", "normal");
+  doc.text("Descripcion del Problema", 12, 135);
+
+  doc.setFont("courier", "normal");
+
+  //todo re ver este codigo
+
+  //?codigo para que la linea rompa en el pdf
+
+  //el numero despues de innerText marca el tamaño de cada linea
+  textLines = doc.splitTextToSize(problemaConfirm.innerText, 200);
+  //posicion en el eje y que arranca el texto
+  let posicionY = 150;
+  //doc.text(x,y,texto)
+  doc.text(10, posicionY + 12 / 72, textLines);
+  posicionY += textLines.length;
+
+  doc.setFont("helvetica", "normal");
+  doc.line(10, 270, 200, 270);
+
+  doc.setFontSize(12);
+  doc.text(
+    "Ante cualquier problema no dude en acercarse a nuestro local",
+    50,
+    280
+  );
+  doc.text("Constitucion 1090, San Fernando, Argentina", 65, 290);
+
+  doc.save("Su reclamo.pdf");
 }
 generarPDF.addEventListener("click", generandoPDF);
+
+//todo hacer validacion del formulacio de reclamo
