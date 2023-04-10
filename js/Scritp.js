@@ -121,7 +121,7 @@ function showConfirmacion() {
   $("#tabMenu a[href='#confirmacion']").tab("show");
 }
 
-let confirmacion = document.getElementById("confirmacion");
+
 
 let generarPDF = document.getElementById("btnExportar");
 window.jsPDF = window.jspdf.jsPDF;
