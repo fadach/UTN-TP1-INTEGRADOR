@@ -436,6 +436,7 @@
                                     <input type="text" class="form-control" id="fname"
                                         pattern="^[A-Z][a-z]+((\s[A-Z][a-z]+)+)?$"
                                         title="El nombre debe tener el siguiente formato Ej: Diego Hernán" required>
+                                        <small id="errNombreConsulta"></small>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -443,8 +444,9 @@
                                     <label class="text-black" for="lname">Apellido</label>
                                     <input type="text" class="form-control" id="lname"
                                         pattern="^[A-Z][a-z]+((\s[A-Z][a-z]+)+)?$"
-                                        title="El apellido debe tener el siguiente formato Ej: Ermocida Rodriguez"
+                                        title="El apellido debe tener el siguiente formato Ej: Ermocida Rodriguez" disabled
                                         required>
+                                        <small id="errApellidoConsulta"></small>
                                 </div>
                             </div>
                         </div>
@@ -452,13 +454,16 @@
                             <label class="text-black" for="email">Email</label>
                             <input type="email" class="form-control" id="mail" pattern="^[a-z._-]+[@][a-z]+(\.[a-z]+)+$"
                                 title="El correo electronico debe tener el siguiente formato Ej: usurname@dominio.com"
-                                required>
+                                required disabled>
+                                <small id="errCorreoConsulta"></small>
                         </div>
                         <div class="form-group">
                             <label class="text-black" for="message">Mensaje</label>
-                            <textarea name="" class="form-control" name="messages" id="messages" cols="30" rows="5" required></textarea>
+
+                            <textarea name="" class="form-control" id="messages" cols="30" rows="5" required disabled></textarea>
                         </div>
-                        <input type="submit" class="btn btn-primary-hover-outline" id="button" value="Enviar">
+
+                        <button type="submit" class="btn btn-primary-hover-outline " id="enviarConsulta" disabled >Enviar Mensaje</button>
                     </form>
                 </div>
             </div>
@@ -580,12 +585,14 @@
                                                         <p>Problema: <span id="problemaConfirm"></span></p>
                                                     </div>
 
-                                                    <button type="button" id="btnExportar" class="btn btn-success">
+                                                    <input type="checkbox" name="" id="check"><small id="confirmo-datos">Confirmo que los datos ingresados son correctos</small>
+                                                    <br>
+                                                    
+                                                    <button type="button" id="btnExportar" class="btn btn-success" disabled>
                                                         Descargue su Reclamo
                                                     </button>
-
-                                                    <button type="submit" class="btn btn-success">Enviar</button>
-                                                </div>
+                                                    
+                                                    <button type="submit" id='enviarReclamo'class="btn btn-success" disabled>Enviar</button>
                                             </form>
                                         </div>
                                     </div>
