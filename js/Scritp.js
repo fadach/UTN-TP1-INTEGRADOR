@@ -11,16 +11,18 @@ spinner();
 //validando formulario de consulta
 
 //seleccionando elementos
-let nombreConsulta = document.getElementById('fname');
-let apellidoConsulta = document.getElementById('lname');
-let emailConsulta = document.getElementById('mail');
-let mensajeConsulta = document.getElementById('messages');
+let nombreConsulta = document.getElementById("fname");
+let apellidoConsulta = document.getElementById("lname");
+let emailConsulta = document.getElementById("mail");
+let mensajeConsulta = document.getElementById("messages");
 
-let errNombreConsulta = document.getElementById('errNombreConsulta');
-let errApellidoConsulta = document.getElementById('errApellidoConsulta');
-let errCorreoConsulta = document.getElementById('errCorreoConsulta');
+let errNombreConsulta = document.getElementById("errNombreConsulta");
+let errApellidoConsulta = document.getElementById("errApellidoConsulta");
+let errCorreoConsulta = document.getElementById("errCorreoConsulta");
 
-let enviarConsulta = document.getElementById('enviarConsulta');
+let checkConsu = document.getElementById("checkConsu");
+
+let enviarConsulta = document.getElementById("enviarConsulta");
 
 let expRegNombre = /^[A-Z][a-z]+((\s[A-Z][a-z]+)+)?$/;
 let expRegEmail = /^[a-z._-]+[@][a-z]+(\.[a-z]+)+$/;
@@ -29,70 +31,76 @@ let expRegEmail = /^[a-z._-]+[@][a-z]+(\.[a-z]+)+$/;
 let validandoNombre = () => {
   let valNombre = nombreConsulta.value;
 
-  if (expRegNombre.test(valNombre)) {   
-    
-    apellidoConsulta.disabled = false; 
-    errNombreConsulta.textContent = '';
-    nombreConsulta.style.marginBotton = '30px';
-    
+  if (expRegNombre.test(valNombre)) {
+    apellidoConsulta.disabled = false;
+    errNombreConsulta.textContent = "";
+    nombreConsulta.style.marginBotton = "30px";
   } else {
     apellidoConsulta.disabled = true;
     errNombreConsulta.textContent =
       "El nombre debe tener el siguiente formato Ej: Diego Hernán";
-    nombreConsulta.style.marginBottom = '5px';
+    nombreConsulta.style.marginBottom = "5px";
   }
-}
-nombreConsulta.addEventListener('input', validandoNombre);
+};
+nombreConsulta.addEventListener("input", validandoNombre);
 
 //validando Apellido y habilitando correo
 let validandoApellido = () => {
   let valApellido = apellidoConsulta.value;
 
   if (expRegNombre.test(valApellido)) {
-    
     emailConsulta.disabled = false;
-    errApellidoConsulta.textContent = '';
-    apellidoConsulta.style.marginBottom = '30px';
+    errApellidoConsulta.textContent = "";
+    apellidoConsulta.style.marginBottom = "30px";
   } else {
     emailConsulta.disabled = true;
     errApellidoConsulta.textContent =
       "El apellido debe tener el siguiente formato Ej: Ermocida Rodriguez";
-    apellidoConsulta.style.marginBottom = '5px';
+    apellidoConsulta.style.marginBottom = "5px";
   }
-}
-apellidoConsulta.addEventListener('input',validandoApellido)
+};
+apellidoConsulta.addEventListener("input", validandoApellido);
 
 //validando Correo y habilitando Consulta
 let validandoCorreo = () => {
   let valCorreo = emailConsulta.value;
-  
+
   if (expRegEmail.test(valCorreo)) {
     mensajeConsulta.disabled = false;
-    errCorreoConsulta.textContent = '';
-    emailConsulta.style.marginBottom = '30px';
+    errCorreoConsulta.textContent = "";
+    emailConsulta.style.marginBottom = "30px";
   } else {
     mensajeConsulta.disabled = true;
     errCorreoConsulta.textContent =
       "El correo electronico debe tener el siguiente formato Ej: usurname@dominio.com";
-    emailConsulta.style.marginBottom = '5px';
+    emailConsulta.style.marginBottom = "5px";
   }
-}
-emailConsulta.addEventListener('input', validandoCorreo);
+};
+emailConsulta.addEventListener("input", validandoCorreo);
 
-//habilitando enviar
-let habilitandoEnviar = () => {
+let habEnviarConsult = () => {
   let valMensaje = mensajeConsulta.value;
 
   if (valMensaje.length >= 1) {
+    checkConsu.disabled = false;
+  } else {
+    checkConsu.disabled = true;
+  }
+};
+mensajeConsulta.addEventListener("input", habEnviarConsult);
+
+//habilitando enviar
+
+let validandoBtn = () => {
+  let marcada = checkConsu.checked;
+  if (marcada) {
     enviarConsulta.disabled = false;
   } else {
     enviarConsulta.disabled = true;
   }
-}
-mensajeConsulta.addEventListener('input', habilitandoEnviar);
+};
 
-
-
+checkConsu.addEventListener("click", validandoBtn);
 
 // form de reclamo
 function validateName() {
@@ -131,8 +139,6 @@ function validateProblem() {
   }
 }
 
-
-
 function showDetalleProblema() {
   if (
     !expRegNombre.test($("#nombre").val()) &&
@@ -143,21 +149,21 @@ function showDetalleProblema() {
       'El nombre debe respetar el siguiente formato:"Juan Perez"'
     );
     //margen input nombre cuando tira error nombre
-    $("#nombre").css("margin-bottom", "10px");
+    $("#nombre").css("margin-bottom", "5px");
 
     //error correo
     $("#errEmail").text(
       'El correo debe respetar el siguiente formato:"usuario@dominio.com"'
     );
     //margen error correo
-    $("#email").css("margin-bottom", "10px");
+    $("#email").css("margin-bottom", "5px");
   } else if (!expRegNombre.test($("#nombre").val())) {
     //error nombre
     $("#errNombre").text(
       'El nombre debe respetar el siguiente formato:"Juan Perez"'
     );
     //margen input nombre cuando tira error nombre
-    $("#nombre").css("margin-botton", "10px");
+    $("#nombre").css("margin-botton", "5px");
 
     //error email se vacia
     $("errEmail").text("");
@@ -171,7 +177,7 @@ function showDetalleProblema() {
     );
 
     //margen del input email cuando arroja error email
-    $("#email").css("margin-bottom", "10px");
+    $("#email").css("margin-bottom", "5px");
 
     //texto error nombre desaparece
     $("#errNombre").text("");
@@ -207,9 +213,9 @@ function showConfirmacion() {
 }
 
 //validando con checkbox btn enviar y exportar pdf
-let check = document.getElementById('check');
-let btnExportar = document.getElementById('btnExportar');
-let enviarReclamo = document.getElementById('enviarReclamo');
+let check = document.getElementById("check");
+let btnExportar = document.getElementById("btnExportar");
+let enviarReclamo = document.getElementById("enviarReclamo");
 
 let validandoBtns = () => {
   let marcada = check.checked;
@@ -220,8 +226,8 @@ let validandoBtns = () => {
     btnExportar.disabled = true;
     enviarReclamo.disabled = true;
   }
-}
-check.addEventListener('click', validandoBtns);
+};
+check.addEventListener("click", validandoBtns);
 
 //generando pdf de reclamo
 let generarPDF = document.getElementById("btnExportar");
@@ -296,29 +302,26 @@ function generandoPDF() {
 }
 generarPDF.addEventListener("click", generandoPDF);
 
-
-
-
 /* Enviar Correo */
 
-const btn = document.getElementById('enviarConsulta');
+const btn = document.getElementById("enviarConsulta");
 
-document.getElementById('form')
-  .addEventListener('submit', function (event) {
-    event.preventDefault();
+document.getElementById("form").addEventListener("submit", function (event) {
+  event.preventDefault();
 
-    btn.value = 'Enviando...';
+  btn.value = "Enviando...";
 
-    const serviceID = 'default_service';
-    const templateID = 'template_uzrd3pp';
+  const serviceID = "default_service";
+  const templateID = "template_uzrd3pp";
 
-    emailjs.sendForm(serviceID, templateID, this)
-      .then(() => {
-        btn.value = 'Enviar';
-        btn.value = 'Enviado';
-
-      }, (err) => {
-        btn.value = 'Enviar';
-        alert(JSON.stringify(err));
-      });
-  }); 
+  emailjs.sendForm(serviceID, templateID, this).then(
+    () => {
+      btn.value = "Enviar";
+      btn.value = "Enviado";
+    },
+    (err) => {
+      btn.value = "Enviar";
+      alert(JSON.stringify(err));
+    }
+  );
+});

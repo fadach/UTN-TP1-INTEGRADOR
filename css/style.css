@@ -241,7 +241,6 @@ section {
 .services .section-title h2 {
   color: var(--body);
   margin: 0px 0px 50px;
-
 }
 
 .services .icon-box {
@@ -358,6 +357,13 @@ section {
   box-shadow: var(--shadow);
 }
 
+/* errFormConsulta */
+#errNombreConsulta,
+#errApellidoConsulta,
+#errCorreoConsulta {
+  color: var(--brand);
+}
+
 /* Footer */
 footer {
   background: linear-gradient(
@@ -448,7 +454,7 @@ textarea.form-control {
 }
 
 #confirmo-datos {
-  display:inline-block;
+  display: inline-block;
   margin-bottom: 30px;
   margin-left: 10px;
   font-weight: 900;
