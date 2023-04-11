@@ -221,11 +221,7 @@ let validandoBtns = () => {
     enviarReclamo.disabled = true;
   }
 }
-
 check.addEventListener('click', validandoBtns);
-
-
-
 
 //generando pdf de reclamo
 let generarPDF = document.getElementById("btnExportar");
