@@ -305,7 +305,7 @@ generarPDF.addEventListener("click", generandoPDF);
 
 /* Enviar Correo */
 
-const btn = document.getElementById('button');
+const btn = document.getElementById('enviarConsulta');
 
 document.getElementById('form')
   .addEventListener('submit', function (event) {
