@@ -113,7 +113,7 @@ function validateName() {
 }
 
 function validateEmail() {
-  // si el id email tiene un valor valida a true el boton siguiente
+  // si el id email tiene un valor valida a true el boton siguiente y el input componente
   if ($("#email").val()) {
     $("#btnSiguiente1").prop("disabled", false);
     $("#componente").prop('disabled', false);
