@@ -29,7 +29,7 @@
     <!-- MENU NAV -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#" >DREA<span class="dot">MS</span></a>
+            <a class="navbar-brand" href="#">DREA<span class="dot">MS</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -427,9 +427,8 @@
                         </div>
                     </div>
                     <!-- fin de la fila contenedora de las columnas direccion, correo, telefono -->
-
-                    <form>
-                        <!-- formulario de consulta -->
+                    <!-- formulario de consulta -->
+                    <form id="form">
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
@@ -460,11 +459,11 @@
                         </div>
                         <div class="form-group">
                             <label class="text-black" for="message">Mensaje</label>
+
                             <textarea name="" class="form-control" id="messages" cols="30" rows="5" required disabled></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary-hover-outline " id="enviarConsulta" disabled >Enviar Mensaje</button>
-
                     </form>
                 </div>
             </div>
@@ -539,16 +538,17 @@
                                                 <div class="tab-pane fade show active" id="datos-personales"
                                                     role="tabpanel">
                                                     <div class="mb-3">
-                                                        <label id="laNombre" for="nombre" class="form-label">Nombre</label>
-                                                        <input type="text" class="form-control" id="nombre" 
+                                                        <label id="laNombre" for="nombre"
+                                                            class="form-label">Nombre</label>
+                                                        <input type="text" class="form-control" id="nombre"
                                                             oninput="validateName()" />
-                                                            <small id="errNombre"></small>
+                                                        <small id="errNombre"></small>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label id="laEmail" for="email" class="form-label">Email</label>
                                                         <input type="email" class="form-control" id="email"
                                                             oninput="validateEmail()" disabled />
-                                                            <small id="errEmail"></small>
+                                                        <small id="errEmail"></small>
                                                     </div>
                                                     <button type="button" class="btn btn-primary" id="btnSiguiente1"
                                                         onclick="showDetalleProblema()" disabled>
@@ -558,12 +558,14 @@
                                                 <!-- formulario de la solapa detalle del problema -->
                                                 <div class="tab-pane fade" id="detalle-problema" role="tabpanel">
                                                     <div class="mb-3">
-                                                        <label id="laComponenete" for="componente" class="form-label">Componente</label>
+                                                        <label id="laComponenete" for="componente"
+                                                            class="form-label">Componente</label>
                                                         <input type="text" class="form-control" id="componente"
                                                             oninput="validateComponent()" />
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label id="laProblema" for="problema" class="form-label">Descripción del
+                                                        <label id="laProblema" for="problema"
+                                                            class="form-label">Descripción del
                                                             problema</label>
                                                         <textarea class="form-control" id="problema" rows="3"
                                                             oninput="validateProblem()" disabled></textarea>
@@ -577,11 +579,12 @@
                                                 <div class="tab-pane fade" id="confirmacion" role="tabpanel">
                                                     <h4>Por favor, revise su información antes de enviar.</h4>
                                                     <div id="aPdf">
-                                                    <p>Nombre: <span id="nombreConfirm"></span></p>                                      
-                                                    <p>Email: <span id="emailConfirm"></span></p>                                        
-                                                    <p>Componente: <span id="componenteConfirm"></span></p>                              
-                                                    <p>Problema: <span id="problemaConfirm"></span></p>                                  
+                                                        <p>Nombre: <span id="nombreConfirm"></span></p>
+                                                        <p>Email: <span id="emailConfirm"></span></p>
+                                                        <p>Componente: <span id="componenteConfirm"></span></p>
+                                                        <p>Problema: <span id="problemaConfirm"></span></p>
                                                     </div>
+
                                                     <input type="checkbox" name="" id="check"><small id="confirmo-datos">Confirmo que los datos ingresados son correctos</small>
                                                     <br>
                                                     
@@ -590,7 +593,6 @@
                                                     </button>
                                                     
                                                     <button type="submit" id='enviarReclamo'class="btn btn-success" disabled>Enviar</button>
-                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -609,6 +611,14 @@
     <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/scritp.js"></script>
+
+
+    <!-- Configuracion de Corre -->
+    <script type="text/javascript" src="js/correo.js"></script>
+
+    <script type="text/javascript">
+        emailjs.init('uu7-Tbb9TjxJPsZ0p')
+    </script>
 
     <!-- test- importado - animacion de inicio -->
     <script src="js/aos.js"></script>
