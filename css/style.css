@@ -459,3 +459,11 @@ textarea.form-control {
   margin-left: 10px;
   font-weight: 900;
 }
+
+/* Tamaño Contactos Dire. Telefono y Correo */
+
+.datosContacto p {
+  font-size: 18px;
+  color: var(--body);
+  margin: 0 0 5px  10px  ;
+}
